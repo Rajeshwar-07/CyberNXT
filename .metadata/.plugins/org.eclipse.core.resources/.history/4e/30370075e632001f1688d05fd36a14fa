@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		integrity="sha384-4yZt8urBUnJomE2oj9e1BrT9t3Eq0M5LgXGuWJs7EN5a2yHlcGVy7QmDZ8U7YvHY" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Employees List</title>
+
+	<style>
+		table th,
+		table td {
+			width: 10%;
+			font-size: 14px;
+		}
+
+		.actions-column {
+			width: 10%;
+		}
+	</style>
+
+</head>
+
+
+<body>
+	<div class="container mt-5">
+		<a th:href="@{/employees/new}" class="btn btn-primary">Add Employee</a>
+		<h1>Employees List</h1>
+		<table class="table table-bordered table-striped mt-4">
+			<thead class="thead-dark">
+				<tr>
+					<th>EmpID</th>
+					<th>FName</th>
+					<th>LName</th>
+					<th>DOB</th>
+					<th>Gender</th>
+					<th>Phone</th>
+					<th>Email</th>
+					<th>Address</th>
+					<th>JOB Title</th>
+					<th>Salary</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="employee : ${employees}">
+					<td th:text="${employee.employeeId}"></td>
+					<td th:text="${employee.firstName}"></td>
+					<td th:text="${employee.lastName}"></td>
+					<td th:text="${#dates.format(employee.dob, 'yyyy-MM-dd')}"></td>
+					<td th:text="${employee.gender}"></td>
+					<td th:text="${employee.phoneNumber}"></td>
+					<td th:text="${employee.email}"></td>
+					<td th:text="${employee.address}"></td>
+					<td th:text="${employee.jobTitle}"></td>
+					<td th:text="${employee.salary}"></td>
+					<td style="width: 200px;">
+						<a th:href="@{'/employees/' + ${employee.employeeId} + '/edit'}"
+							class="btn btn-sm btn-warning"><i class="fa fa-pen"></i></a>
+						<form th:action="@{'/employees/' + ${employee.employeeId} + '/delete'}" method="post"
+							style="display:inline;">
+							<button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash" style="font-size:10px;"></i></button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+		</script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+		integrity="sha384-Ksv9Q4eubdb3BJBCk7NxU7+00Jpoh5E7zeyY4P8csX5IwT4fuuDkybfiZ5JsJ1mL"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+		integrity="sha384-5sAR7xN1Nv6Xo5dWn0fz1N6NqGZ9YYFWOt9F6rFSqSpFZxIMBb3c8bKhgJ3voRxT" crossorigin="anonymous">
+		</script>
+</body>
+
+</html>

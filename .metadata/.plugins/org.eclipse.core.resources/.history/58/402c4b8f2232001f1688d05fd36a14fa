@@ -1,0 +1,42 @@
+package com.ems.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.ems.entity.Employee;
+import com.ems.service.EmployeeService;
+
+@Controller
+public class EmployeeController {
+
+	private EmployeeService employeeService;
+
+	public EmployeeController(EmployeeService employeeService) {
+		this.employeeService = employeeService;
+	}
+
+	@GetMapping("/employees")
+	public String listStudent(Model model) {
+		model.addAttribute("employees", employeeService.getEmployeeList());
+		return "employees";
+	}
+
+	@GetMapping("/employee/new")
+	public String createStudentForm(Model model) {
+		Employee employee = new Employee();
+		model.addAttribute("employee", employee);
+		return "create_student";
+	}
+
+	@PostMapping("/employees")
+	public ResponseEntity<Employee> saveEmployee( Employee employee) {
+		Employee saveEmployee = employeeService.createEmployee(employee);
+		return new ResponseEntity<Employee>(saveEmployee, HttpStatus.OK);
+	}
+
+}

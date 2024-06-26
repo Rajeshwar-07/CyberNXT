@@ -1,0 +1,8 @@
+package com.ems.service;
+
+import jakarta.validation.constraints.AssertFalse.List;
+
+public class EmployeeService {
+
+	public List<Employee> getEmployeeList();
+}

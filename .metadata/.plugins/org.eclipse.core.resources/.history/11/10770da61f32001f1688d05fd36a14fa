@@ -1,0 +1,20 @@
+package com.ems.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.ems.service.EmployeeService;
+
+@Controller
+public class EmployeeController {
+
+	private EmployeeService employeeService;
+
+	public EmployeeController(EmployeeService employeeService) {
+		this.employeeService = employeeService;
+	}
+	
+	
+	@GetMapping("/")
+	
+}

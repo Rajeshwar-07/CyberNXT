@@ -1,0 +1,15 @@
+package com.ems.service;
+
+import java.util.List;
+
+import com.ems.entity.Employee;
+
+public class EmployeeServiceImpl implements EmployeeService{
+
+	@Override
+	public List<Employee> getEmployeeList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

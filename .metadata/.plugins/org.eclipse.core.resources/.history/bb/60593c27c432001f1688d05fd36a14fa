@@ -1,0 +1,52 @@
+package com.ems.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.ems.entity.Employee;
+import com.ems.repository.EmployeeRepository;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService {
+
+	private EmployeeRepository repository;
+
+	public EmployeeServiceImpl(EmployeeRepository repository) {
+		this.repository = repository;
+	}
+
+	
+	@Override
+	public List<Employee> getEmployeeList() {
+		return repository.findAll();
+	}
+
+
+	@Override
+	public Employee createEmployee(Employee employee) {
+		return repository.save(employee);
+	}
+
+
+	@Override
+	public Employee findEmployee(Integer empId) {
+		Employee findEmp = repository.findById(empId).orElse(null);
+		return findEmp;
+	}
+
+
+	@Override
+	public Employee updateEmployee(Employee updateEmployee, Integer empId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Employee deleteEmployee(Integer empId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,15 @@
+package com.ems.controller;
+
+import org.springframework.stereotype.Controller;
+
+import com.ems.service.EmployeeService;
+
+@Controller
+public class EmployeeController {
+
+	private EmployeeService employeeService;
+
+	public EmployeeController(EmployeeService employeeService) {
+		this.employeeService = employeeService;
+	}
+}

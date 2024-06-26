@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Employee Detail</title>
+</head>
+<body>
+<div class="container mt-5">
+    <h1>Employee Detail</h1>
+    <div class="form-group">
+        <label>First Name:</label>
+        <p th:text="${employee.firstName}"></p>
+    </div>
+    <div class="form-group">
+        <label>Last Name:</label>
+        <p th:text="${employee.lastName}"></p>
+    </div>
+    <div class="form-group">
+        <label>Date of Birth:</label>
+        <p th:text="${#dates.format(employee.dob, 'yyyy-MM-dd')}"></p>
+    </div>
+    <div class="form-group">
+        <label>Gender:</label>
+        <p th:text="${employee.gender}"></p>
+    </div>
+    <div class="form-group">
+        <label>Phone Number:</label>
+        <p th:text="${employee.phoneNumber}"></p>
+    </div>
+    <div class="form-group">
+        <label>Email:</label>
+        <p th:text="${employee.email}"></p>
+    </div>
+    <div class="form-group">
+        <label>Address:</label>
+        <p th:text="${employee.address}"></p>
+    </div>
+    <div class="form-group">
+        <label>Job Title:</label>
+        <p th:text="${employee.jobTitle}"></p>
+    </div>
+    <div class="form-group">
+        <label>Salary:</label>
+        <p th:text="${employee.salary}"></p>
+    </div>
+    <a th:href="@{/employees}" class="btn btn-primary">Back</a>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+        integrity="sha384-Ksv9Q4eubdb3BJBCk7NxU7+00Jpoh5E7zeyY4P8csX5IwT4fuuDkybfiZ5JsJ1mL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-5sAR7xN1Nv6Xo5dWn0fz1N6NqGZ9YYFWOt9F6rFSqSpFZxIMBb3c8bKhgJ3voRxT" crossorigin="anonymous">
+</script>
+</body>
+</html>
